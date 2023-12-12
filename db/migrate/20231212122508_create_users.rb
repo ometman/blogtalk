@@ -2,7 +2,7 @@ class CreateUsers < ActiveRecord::Migration[7.1]
   def change
     create_table :users do |t|
       t.string :name
-      t.text :photo_url  # Changed 'Photo' to 'photo_url' to represent a link to an image
+      t.text :photo_url
       t.text :bio
       t.datetime :updated_at
       t.datetime :created_at
