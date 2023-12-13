@@ -1,17 +1,15 @@
 class CreateUsers < ActiveRecord::Migration[7.1]
   def change
-    create_table :users do |t|
+    create_table :user do |t|
       t.string :name
-      t.text :photo_url
+      t.text :photo
       t.text :bio
-      t.datetime :updated_at
-      t.datetime :created_at
       t.integer :posts_counter
 
       t.timestamps
     end
 
-    add_index :users, :posts_counter
+    add_index :user, :posts_counter
   end
 end
 
