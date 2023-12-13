@@ -125,9 +125,10 @@ In order to run this project you need:
 ### Install Packages and Run Tests <a name="install"></a>
 
  Run `npm install` to set up the required packages.
+
 ```
 bash > npm install
-```
+````
  Run Tests <a name="run-tests"></a>
   To run tests run the following command in your terminal
   >> Rspec
