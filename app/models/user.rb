@@ -2,5 +2,11 @@ class User < ApplicationRecord
     has_many :posts, foreign_key: :author_id, dependent: :destroy
     has_many :comments, dependent: :destroy
     has_many :likes, dependent: :destroy
-  end
+
+    def self.recent_posts(user_name, limit = 3)
+      user = find_by(name: user_name)
+      return unless user
   
+      user.posts.order(created_at: :desc).limit(limit)
+    end
+end
