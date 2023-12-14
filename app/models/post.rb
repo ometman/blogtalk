@@ -9,11 +9,11 @@ class Post < ApplicationRecord
     private
 
     def increment_user_posts_counter
-      author_increment(:posts_counter)
+      author.increment(:posts_counter)
     end
 
     def decrement_user_posts_counter
-      auhor_decrement(:posts_counter)
+      author.decrement(:posts_counter)
     end
 
     public
