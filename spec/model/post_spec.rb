@@ -16,10 +16,10 @@ RSpec.describe Post, type: :model do
 
   describe 'callbacks' do
     let!(:author) { create(:user) }
-    let!(:post) { create(:post, author: author) }
+    let!(:post) { create(:post, author:) }
 
     it 'increments user posts_counter after creating a post' do
-      expect { create(:post, author: author) }.to change { author.reload.posts_counter }.by(1)
+      expect { create(:post, author:) }.to change { author.reload.posts_counter }.by(1)
     end
 
     it 'decrements user posts_counter after destroying a post' do
@@ -29,7 +29,7 @@ RSpec.describe Post, type: :model do
 
   describe '#recent_comments' do
     let!(:post) { create(:post) }
-    let!(:comments) { create_list(:comment, 10, post: post) }
+    let!(:comments) { create_list(:comment, 10, post:) }
 
     it 'returns 5 most recent comments for a post' do
       expect(post.recent_comments(5).count).to eq(5)
