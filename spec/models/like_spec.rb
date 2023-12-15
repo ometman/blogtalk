@@ -1,4 +1,4 @@
-require 'rails_helper'
+# require 'rails_helper'
 
 RSpec.describe Like, type: :model do
   describe 'associations' do
@@ -18,3 +18,4 @@ RSpec.describe Like, type: :model do
       expect { like.destroy }.to change { post.reload.likes_counter }.by(-1)
     end
   end
+end

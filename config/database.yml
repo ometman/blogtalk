@@ -55,7 +55,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: blogtalk_dev
+  database: blogtalk_test
   username: postgres
   password: ometman
   host: localhost
