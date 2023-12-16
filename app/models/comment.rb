@@ -8,10 +8,10 @@ class Comment < ApplicationRecord
   private
 
   def increment_post_comments_counter
-    post.increment(:comments_counter)
+    post.increment(:comments_counter).save
   end
 
   def decrement_post_comments_counter
-    post.decrement(:comments_counter)
+    post.decrement(:comments_counter).save
   end
 end
