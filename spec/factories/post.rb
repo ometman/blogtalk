@@ -5,8 +5,6 @@ FactoryBot.define do
     likes_counter { 0 }
     association :author, factory: :user
 
-    # Other attributes for the Post model...
-
     factory :post_with_comments do
       transient do
         comments_count { 5 }
@@ -18,4 +16,5 @@ FactoryBot.define do
     end
   end
 end
+
   
