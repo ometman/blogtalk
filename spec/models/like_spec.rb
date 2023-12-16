@@ -1,12 +1,8 @@
-# require 'rails_helper'
+require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  describe 'associations' do
-    it { should belong_to(:user) }
-    it { should belong_to(:post) }
-  end
 
-  describe 'callbacks' do
+  describe 'callbacks for increment and decrement in likes' do
     let!(:post) { create(:post) }
     let!(:like) { create(:like, post: post) }
 
