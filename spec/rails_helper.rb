@@ -1,7 +1,5 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
-# require 'shoulda/matchers'
-
 
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
@@ -37,7 +35,7 @@ end
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
- # using factorybot with rspec
+  # using factorybot with rspec
   config.include FactoryBot::Syntax::Methods
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

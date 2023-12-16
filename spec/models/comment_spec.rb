@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-
   describe 'callbacks' do
     let!(:post) { create(:post) }
     let!(:comment) { create(:comment, post:) }

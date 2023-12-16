@@ -42,7 +42,7 @@ RSpec.describe User, type: :model do
         recent_posts = User.recent_posts('test_user')
 
         expect(recent_posts).to_not be_nil
-        expect(recent_posts.count).to eq(3) # Assuming default limit is 3
+        expect(recent_posts.count).to eq(3)
         expect(recent_posts).to include(post1, post2, post3)
         expect(recent_posts).to_not include(post4)
       end
