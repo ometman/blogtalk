@@ -120,7 +120,9 @@ In order to run this project you need:
 
 - Use `git clone` to get your local copy of the project.
   >> At the prompt (bash) enter:
-     - git clone https://github.com/ometman/blogtalk.git
+  ```
+  git clone https://github.com/ometman/blogtalk.git
+  ```
 
 ### Install Packages and Run Tests <a name="install"></a>
 
@@ -131,15 +133,21 @@ bash > npm install
 ````
  Run Tests <a name="run-tests"></a>
   To run tests run the following command in your terminal
-  >> Rspec
+    ```
+    Rspec
+    ```
 
  Run Linters
   - You can also check linter errors
   - Make sure Rubocop and stylelint are installed
      Install Rubocop, run the following command:
-    > gem install --no-document rubocop -v '>= 1.0, < 2.0' # https://docs.rubocop.org/en/stable/installation/
+    ```
+    gem install --no-document rubocop -v '>= 1.0, < 2.0'
+    ```
     Install Stylelint, run the following command:
-    > npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
+    ```
+    npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
+    ```
   - Now, run the following:
     ```
     npx stylelint "**/*.{css,scss}"
@@ -153,10 +161,17 @@ bash > npm install
 
 To run the project locally, execute the following command:
 
-- Start and login to the database server: 
-  - run psql or start PgAdmin
+- Start and login to the database server (for Windows): 
+  ```
+  run psql
+  ```
+  Or start PgAdmin
+
 - Launch the app with the following command to start the rails server:
-  > rails s 
+  ``
+  rails s
+ ``
+ 
 - Voila! Now, go to the browser and enter: localhost:3000 or 127.0.0.1:3000
 
 ### Deployment
