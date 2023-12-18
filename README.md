@@ -168,9 +168,10 @@ To run the project locally, execute the following command:
   Or start PgAdmin
 
 - Launch the app with the following command to start the rails server:
-  ```
+  ``
   rails s
- ``` 
+ ``
+ 
 - Voila! Now, go to the browser and enter: localhost:3000 or 127.0.0.1:3000
 
 ### Deployment

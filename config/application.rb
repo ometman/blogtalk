@@ -23,5 +23,7 @@ module Blogtalk
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    #schema format
+    config.active_record.schema_format = :postgresql
   end
 end

@@ -8,10 +8,10 @@ class Like < ApplicationRecord
   private
 
   def increment_post_likes_counter
-    post.increment(:likes_counter)
+    post.increment(:likes_counter).save
   end
 
   def decrement_post_likes_counter
-    post.decrement(:likes_counter)
+    post.decrement(:likes_counter).save
   end
 end
