@@ -13,10 +13,10 @@ RSpec.describe UsersController, type: :request do
     end
 
     it 'renders the correct content in the HTML view' do
-        get users_path
-        expect(response.body).to include('<h1>Users</h1>')
-        expect(response.body).to include('<p>Here is the list of users.</p>')
-      end
+      get users_path
+      expect(response.body).to include('<h1>Users</h1>')
+      expect(response.body).to include('<p>Here is the list of users.</p>')
+    end
   end
 
   describe 'GET #show' do
@@ -33,9 +33,9 @@ RSpec.describe UsersController, type: :request do
     end
 
     it 'renders the correct content in the HTML view' do
-        get user_path(user)
-        expect(response.body).to include('<h1>User Posts</h1>')
-        expect(response.body).to include('<p>Here is the list of posts for a given user.</p>')
+      get user_path(user)
+      expect(response.body).to include('<h1>User Posts</h1>')
+      expect(response.body).to include('<p>Here is the list of posts for a given user.</p>')
     end
   end
 end
