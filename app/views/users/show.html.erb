@@ -1,2 +1,25 @@
-<h1>User Posts</h1>
-<p>Here is the list of posts for a given user.</p>
+<h1><%= @user.name %></h1>
+<div class="user-profile">
+  <%= image_tag(@user.photo, alt: 'User Photo', class: 'photo') %>
+  <div class="user-details">
+    <p><strong>Bio:</strong> <%= @user.bio %></p>
+  </div>
+</div>
+
+<h2>Posts</h2>
+<% @user.posts.each do |post| %>
+  <div class="post">
+    <div class="post-header">
+      <div class="post-user">
+        <%= image_tag(@user.photo, alt: 'User Photo', class: 'user-photo') %>
+        <span><%= @user.name %></span>
+      </div>
+      <h3><%= post.title %></h3>
+    </div>
+    <div class="post-details">
+      <p><%= post.excerpt %></p>
+      <p>Number of likes: <%= post.likes.count %></p>
+      <p>Number of comments: <%= post.comments.count %></p>
+    </div>
+  </div>
+<% end %>
