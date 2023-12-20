@@ -4,11 +4,11 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    render json: @posts
+    render 'index'
   end
 
   def show
-    render json: @post
+    render 'show'
   end
 
   private
