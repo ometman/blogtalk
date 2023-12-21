@@ -1,0 +1,45 @@
+.user-container {
+    background: #fff;
+    max-width: 580px;
+    margin: 2% auto;
+    height: auto;
+    padding: 1% 2%;
+    border: solid 2px #000;
+    display: flex;
+    align-items: center;
+}
+
+.user-photo {
+    width: 20%;
+    height: 100px;
+    border-radius: 8px;
+    border: solid 0.5px #ccc;
+    object-fit: cover;
+    text-align: center; 
+  }
+
+.photo {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+  
+.user-name {
+    width: 45%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  div.user-posts-count {
+    width: 35%;
+    text-align: center;
+    color: #000;
+  }
+
+
+  p.user-posts-count {
+    padding-top: 50px;
+  }
+  
