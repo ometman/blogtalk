@@ -14,18 +14,10 @@
     <p><strong>Bio:</strong> <%= @user.bio %></p>
   </div>
 
-  <% @user.posts.each do |post| %>
-    <div class="post">
-      <div class="post-header">
-        <h3>Post:<%= post.id %></h3>
-      </div>
-      <div class="post-details">
-        <p><%= truncate(post.text, length: 100) %></p>
-      </div>
-      <div class="comments-likes">
-        <p>Comments: <%= post.comments.count %></p>
-        <p>Likes: <%= post.likes.count %></p>
-      </div>
-    </div>
-  <% end %>
+  <div id="posts-container">
+    <%= render partial: 'post', collection: @user.posts.limit(3) %>
+    <% if @user.posts.count > 3 %>
+    <button id="show-more-btn" class"show-more-btn">Show More</button>
+    <% end %>
+  </div>
 </div>
