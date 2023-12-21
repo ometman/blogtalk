@@ -67,3 +67,16 @@ p.user-posts-count {
     justify-content: flex-end;
     gap: 2%;
   }
+
+.show-more-btn {
+    display: block;
+    text-align: center;
+    width: auto;
+    margin: 2% auto;
+    height: auto;
+    padding: 1%;
+    border: solid 1px #ddedee;
+    border-radius: 8px;
+    background: blue;
+    color: #fff;
+  }
