@@ -32,14 +32,38 @@
     color: #333;
   }
   
-  div.user-posts-count {
+div.user-posts-count {
     width: 35%;
     text-align: center;
     color: #000;
   }
 
 
-  p.user-posts-count {
+p.user-posts-count {
     padding-top: 50px;
   }
+
+.user-bio {
+    display: block;
+    max-width: 580px;
+    margin: 2% auto;
+    height: auto;
+    padding: 1% 2%;
+    border: solid 2px #000;
+}
   
+.post {
+    display: flex;
+    flex-direction: column;
+    max-width: 580px;
+    margin: 2% auto;
+    height: auto;
+    padding: 1% 2%;
+    border: solid 2px #000;
+  }
+
+  .comments-likes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2%;
+  }
