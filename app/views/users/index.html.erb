@@ -1,5 +1,5 @@
 <% @users.each do |user| %>
-  <div class="user-container">
+  <%= link_to user_path(user), class: 'user-container', id: "user_#{user.id}" do %>
     <div class="user-photo">
       <%= image_tag(user.photo, alt: 'User Photo', class: 'photo') %>
     </div>
@@ -9,5 +9,5 @@
     <div class="user-posts-count">
       <p class="user-posts-count">Number of posts: <%= user.posts.count %></p>
     </div>
-  </div>
+  <% end %>
 <% end %>
