@@ -1,25 +1,31 @@
-<h1><%= @user.name %></h1>
-<div class="user-profile">
-  <%= image_tag(@user.photo, alt: 'User Photo', class: 'photo') %>
-  <div class="user-details">
+<div class="user-posts">
+  <div class="user-container">
+    <div class="user-photo">
+      <%= image_tag(@user.photo, alt: 'User Photo', class: 'photo') %>
+    </div>
+    <div class="user-name">
+      <h2><%= @user.name %></h2>
+    </div>
+    <div class="user-posts-count">
+      <p class="user-posts-count">Number of posts: <%= @user.posts.count %></p>
+    </div>
+  </div>
+  <div class="user-bio">
     <p><strong>Bio:</strong> <%= @user.bio %></p>
   </div>
-</div>
 
-<h2>Posts</h2>
-<% @user.posts.each do |post| %>
-  <div class="post">
-    <div class="post-header">
-      <div class="post-user">
-        <%= image_tag(@user.photo, alt: 'User Photo', class: 'user-photo') %>
-        <span><%= @user.name %></span>
+  <% @user.posts.each do |post| %>
+    <div class="post">
+      <div class="post-header">
+        <h3>Post:<%= post.id %></h3>
       </div>
-      <h3><%= post.title %></h3>
+      <div class="post-details">
+        <p><%= truncate(post.text, length: 100) %></p>
+      </div>
+      <div class="post-likes-comments">
+        <p>Comments: <%= post.comments.count %></p>
+        <p>Likes: <%= post.likes.count %></p>
+      </div>
     </div>
-    <div class="post-details">
-      <p><%= post.excerpt %></p>
-      <p>Number of likes: <%= post.likes.count %></p>
-      <p>Number of comments: <%= post.comments.count %></p>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
