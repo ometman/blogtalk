@@ -10,10 +10,9 @@
         <p class="user-posts-count">Number of posts: <%= @user.posts.count %></p>
         </div>
     </div>
-    <div id="posts-container">
-        <% all_posts = Post.all %>
-        <%= render partial: 'post', collection: all_posts %>
+    <div class="posts-container">
+        <% @posts.each do |post| %>
+            <%= render partial: 'post', collection: @posts %>
+        <% end %>
     </div>
-</div>
-
 </div>

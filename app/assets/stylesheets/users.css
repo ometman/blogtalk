@@ -82,4 +82,12 @@ p.user-posts-count {
 
   .post-container {
     height: auto;
+    background: #fff;
+    max-width: 580px;
+    margin: 2% auto;
+    height: auto;
+    padding: 1% 2%;
+    border: solid 2px #000;
+    display: flex;
+    align-items: center;
   }

@@ -3,7 +3,6 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show]
 
   def index
-    @user = User.find(params[:user_id])
     @posts = @user.posts
   end
 
