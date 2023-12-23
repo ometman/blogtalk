@@ -15,9 +15,10 @@
   </div>
 
   <div id="posts-container">
-    <%= render partial: 'post', collection: @user.posts.limit(3) %>
-    <% if @user.posts.count > 3 %>
-    <button id="show-more-btn" class="show-more-btn">Show More</button>
-    <% end %>
+    <% recent_posts = User.recent_posts(@user.name, 3) %>
+    <%= render partial: 'post', collection: recent_posts %>
   </div>
+
+  <%= link_to 'Show more', user_posts_path(@user), class: 'show-more-btn' %>
+
 </div>
