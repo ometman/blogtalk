@@ -1,16 +1,15 @@
-  <div class="post">
+<div class="post">
   <%= link_to user_post_path(@user, post), id: "user_#{post.id}", class: 'posts-container' do %> 
-
-      <div class="post-header">
-        <h3>Post: <%= post.id %></h3>
-      </div>
-      <div class="comments-likes">
-        <p>Comments: <%= post.comments.count %></p>
-        <p>Likes: <%= post.likes.count %></p>
-      </div>
-      <div class="post-details">
-        <p><%= truncate(post.text, length: 100) %></p>
-      </div>
-      <% end %>
-  </div>
+    <div class="post-header">
+      <h3>Post: <%= post.id %></h3>
+    </div>
+    <div class="comments-likes">
+      <p>Comments: <%= post.comments.count %></p>
+      <p>Likes: <%= post.likes.count %></p>
+    </div>
+    <div class="post-details">
+      <p><%= truncate(post.text, length: 100) %></p>
+    </div>
+  <% end %>
+</div>
 
