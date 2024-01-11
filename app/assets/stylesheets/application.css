@@ -22,3 +22,13 @@ body, html {
 a, a:link {
     text-decoration: none;
 }
+
+.main-container {
+display: block;
+max-width: 580px;
+background: #fff;
+margin: 1% auto;
+height: auto;
+padding: 1% 2%;
+border: solid 2px #000;
+}

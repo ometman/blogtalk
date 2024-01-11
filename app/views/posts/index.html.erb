@@ -1,4 +1,4 @@
-<div class="user-posts">
+<div class="main-container">
     <div class="user-container">
         <div class="user-photo">
         <%= image_tag(@user.photo, alt: 'User Photo', class: 'photo') %>
@@ -10,7 +10,10 @@
         <p class="user-posts-count">Number of posts: <%= @user.posts.count %></p>
         </div>
     </div>
-    <div class="posts-container">
-        <%= render partial: 'post', collection: @posts %>
-    </div>
+</div>
+<div class="posts-container">
+    <%= render partial: 'post', collection: @posts %>
+</div>
+<div class="pagination">
+    <%= link_to 'Pagination', user_posts_path(@user), class: 'pagination-btn' %>
 </div>

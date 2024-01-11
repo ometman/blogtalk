@@ -1,4 +1,4 @@
-<div class="user-posts">
+<div class="main-container">
   <div class="user-container">
     <div class="user-photo">
       <%= image_tag(@user.photo, alt: 'User Photo', class: 'photo') %>
@@ -10,15 +10,16 @@
       <p class="user-posts-count">Number of posts: <%= @user.posts.count %></p>
     </div>
   </div>
-  <div class="user-bio">
-    <p><strong>Bio:</strong> <%= @user.bio %></p>
-  </div>
+</div>
+<div class="user-bio">
+  <p><strong>Bio:</strong> <%= @user.bio %></p>
+</div>
 
-  <div id="posts-container">
-    <% recent_posts = User.recent_posts(@user.name, 3) %>
-    <%= render partial: 'post', collection: recent_posts %>
-  </div>
+<div id="posts-container">
+  <% recent_posts = User.recent_posts(@user.name, 3) %>
+  <%= render partial: 'post', collection: recent_posts %>
+</div>
 
-  <%= link_to 'Show more', user_posts_path(@user), class: 'show-more-btn' %>
-
+<div class="show-more">
+  <%= link_to 'Show more', user_posts_path(@user), class: "show-more-btn" %>
 </div>
