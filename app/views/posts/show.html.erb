@@ -1,13 +1,18 @@
-<div class="user-container">
-    <div class="pagination-container"
-        <div class="pagination-title">
-            <h3 class="user-posts-count">Post <%= @post.id %> by <%= @user.name %></h3>       
-        </div>
-        <div class="pagination-posts-text">
-            <% @post.text %>
-        </div>
-        <div class="posts-comments">
-            <% @user.name %>: Comment <% @post.comments.count %>
-        </div>
+<div class="main-container">
+    <div class="post-info">
+        <h3 class="post-id-username">Post <%= @post.id %> by <%= @user.name %></h3>
+        <p class="post-comments-likes">Comments: <%= @post.comments.count %>, Likes: <%= @post.likes.count %></p>       
+    </div>
+    <div class="post-text">
+        <%= @post.text %>
     </div>
 </div>
+<ul class="comments-container">
+    <% if @comments %>
+        <% @comments.each do |comment| %> 
+        <li class="user-comment"><%= comment.user.name %>: <%= comment.text %></li>
+        <% end %>
+    <% else %>
+        <li class="user-comment">No comments for this post.</li>
+    <% end %>
+</ul>
