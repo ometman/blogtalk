@@ -8,6 +8,8 @@ class PostsController < ApplicationController
 
   def show
     @posts = @user.posts.find(params[:id])
+    @comments = @posts.comments
+    @comments_user = @comments.map(&:user)
   end
 
   private

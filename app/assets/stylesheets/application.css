@@ -23,6 +23,10 @@ a, a:link {
     text-decoration: none;
 }
 
+ul, li {
+    list-style: none;
+}
+
 .main-container {
 display: block;
 max-width: 580px;

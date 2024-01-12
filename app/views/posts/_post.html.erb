@@ -12,6 +12,12 @@
     </div>
   <% end %>
 </div>
-<div class="comments-container">
-  <p class="user-comment"> <%= @user.name %> : Comments: <%= post.comments.count %></p>
-</div>
+<ul class="comments-container">
+  <% if post.comments.present? %>
+    <% post.comments.each do |comment| %> 
+      <li class="user-comment"><%= comment.user.name %>: <%= comment.text %></li>
+    <% end %>
+  <% else %>
+    <li class="user-comments">No comments for this post.</li>
+  <% end %>
+</ul>
