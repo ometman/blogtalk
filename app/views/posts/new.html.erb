@@ -1,0 +1,14 @@
+<%= form_for(current_user.posts.build) do |f| %>
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :text %>
+      <%= f.text_area :content %>
+    </div>
+  
+    <%= f.submit "Create new post", class: "btn btn-primary" %>
+  <% end %>
+  
