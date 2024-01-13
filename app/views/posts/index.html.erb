@@ -15,5 +15,5 @@
     <%= render partial: 'post', collection: @posts %>
 </div>
 <div class="pagination">
-    <%= link_to 'Pagination', user_posts_path(@user), class: 'pagination-btn' %>
+  <%= link_to 'Pagination', user_posts_path(@user, page: @posts.current_page + 1), class: 'pagination-btn' %>
 </div>
