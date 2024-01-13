@@ -1,0 +1,9 @@
+<%= form_for(current_user.comments.build) do |f| %>
+    <div class="field">
+      <%= f.label :text %>
+      <%= f.text_area :text %>
+    </div>
+  
+    <%= f.submit "Create Comment", class: "btn btn-primary" %>
+  <% end %>
+  
