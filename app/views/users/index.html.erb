@@ -1,2 +1,5 @@
-<h1>Users</h1>
-<p>Here is the list of users.</p>
+<% @users.each do |user| %>
+  <%= link_to user_path(user), id: "user_#{user.id}", class: "main-container" do %>
+    <%= render partial: 'partials/userinfo', locals: { user: user } %>
+  <% end %>
+<% end %>

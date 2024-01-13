@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.main-container {
+  display: block;
+  max-width: 580px;
+  background: #fff;
+  margin: 1% auto;
+  height: auto;
+  padding: 1% 2%;
+  border: solid 2px #000;
+}
+
+a,
+a:link {
+  text-decoration: none;
+}

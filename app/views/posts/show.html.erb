@@ -1,2 +1,18 @@
-<h1>Post Content</h1>
-<p>Here is the Specific post for given user.</p>
+<div class="main-container">
+    <div class="post-info">
+        <h3 class="post-id-username">Post <%= @post.title %> by <%= @user.name %></h3>
+        <p class="post-comments-likes">Comments: <%= @post.comments.count %>, Likes: <%= @post.likes.count %></p>       
+    </div>
+    <div class="post-text">
+        <%= @post.text %>
+    </div>
+</div>
+<ul class="comments-container">
+    <% if @comments %>
+        <% @comments.each do |comment| %> 
+        <li class="user-comment"><%= comment.user.name %>: <%= comment.text %></li>
+        <% end %>
+    <% else %>
+        <li class="user-comment">No comments for this post.</li>
+    <% end %>
+</ul>

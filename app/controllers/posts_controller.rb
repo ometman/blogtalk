@@ -3,12 +3,13 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show]
 
   def index
-    @posts = Post.all
-    render 'index'
+    @posts = @user.posts.paginate(page: params[:page], per_page: 2)
   end
 
   def show
-    render 'show'
+    @posts = @user.posts.find(params[:id])
+    @comments = @posts.comments
+    @comments_user = @comments.map(&:user)
   end
 
   private

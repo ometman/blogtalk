@@ -1,2 +1,15 @@
-<h1>User Posts</h1>
-<p>Here is the list of posts for a given user.</p>
+<div class="main-container">
+  <%= render partial: 'partials/userinfo', locals: { user: @user } %>
+</div>
+<div class="user-bio">
+  <p><strong>Bio:</strong> <%= @user.bio %></p>
+</div>
+
+<div id="posts-container">
+  <% recent_posts = User.recent_posts(@user.name, 3) %>
+  <%= render partial: 'partials/post', collection: recent_posts %>
+</div>
+
+<div class="show-more">
+  <%= link_to 'Show more', user_posts_path(@user), class: "show-more-btn" %>
+</div>
