@@ -1,15 +1,5 @@
 <div class="main-container">
-  <div class="user-container">
-    <div class="user-photo">
-      <%= image_tag(@user.photo, alt: 'User Photo', class: 'photo') %>
-    </div>
-    <div class="user-name">
-      <h2><%= @user.name %></h2>
-    </div>
-    <div class="user-posts-count">
-      <p class="user-posts-count">Number of posts: <%= @user.posts.count %></p>
-    </div>
-  </div>
+  <%= render partial: 'partials/userinfo', locals: { user: @user } %>
 </div>
 <div class="user-bio">
   <p><strong>Bio:</strong> <%= @user.bio %></p>
@@ -17,7 +7,7 @@
 
 <div id="posts-container">
   <% recent_posts = User.recent_posts(@user.name, 3) %>
-  <%= render partial: 'post', collection: recent_posts %>
+  <%= render partial: 'partials/post', collection: recent_posts %>
 </div>
 
 <div class="show-more">

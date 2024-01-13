@@ -1,0 +1,11 @@
+<div class="user-container">
+    <div class="user-photo">
+    <%= image_tag(user.photo, alt: 'User Photo', class: 'photo') %>
+    </div>
+    <div class="user-name">
+    <h2><%= user.name %></h2>
+    </div>
+    <div class="user-posts-count">
+    <p class="user-posts-count">Number of posts: <%= user.posts.count %></p>
+    </div>
+</div>
