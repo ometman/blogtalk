@@ -1,18 +1,30 @@
-<div class="main-container">
-    <div class="post-info">
-        <h3 class="post-id-username">Post <%= @post.title %> by <%= @user.name %></h3>
-        <p class="post-comments-likes">Comments: <%= @post.comments.count %>, Likes: <%= @post.likes.count %></p>       
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="flash <%= key %>">
+      <%= value %>
     </div>
-    <div class="post-text">
-        <%= @post.text %>
-    </div>
-</div>
-<ul class="comments-container">
-    <% if @comments %>
-        <% @comments.each do |comment| %> 
-        <li class="user-comment"><%= comment.user.name %>: <%= comment.text %></li>
-        <% end %>
-    <% else %>
-        <li class="user-comment">No comments for this post.</li>
+  <% end %>
+
+  <div class="post">
+    <h4>Post <%= @post.title %></h4>
+    <p class="count">Comments:💬<%= @post.comments.count %> | Likes:📝<%= @post.likes.count %></p>
+    <p><%= @post.text %></p>
+  </div>
+
+  <div class="comments">
+    <% @post.comments.each do |comment| %>
+      <div class="comment">
+        <p><%= comment.author&.name %>: <%= comment.text %></p>
+      </div>
     <% end %>
-</ul>
+  </div>
+
+  <%= link_to 'Create New Comment 💬', new_user_post_comment_path(@user, @post), class: 'button' %>
+  <h3 style="color: #336699; margin: 12px 50px">Create a new comment💬</h3>
+  <%= form_with url: user_post_likes_path(@user, @post), method: :post do |f| %>
+  
+    <div>
+      <%= f.submit 'Like 👍', class: 'button'%>
+    </div>
+  <% end %>
+</div>

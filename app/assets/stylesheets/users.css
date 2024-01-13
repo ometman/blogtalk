@@ -64,13 +64,16 @@ p.user-posts-count {
   gap: 2%;
 }
 
-.show-more,
+.action-btns,
 .pagination {
+  display: flex;
+  width: 10%;
+  gap: 2%;
   text-align: center;
   margin: 2% auto;
 }
 
-.show-more-btn,
+.action-btn,
 .pagination-btn {
   color: #fff;
   text-align: center;

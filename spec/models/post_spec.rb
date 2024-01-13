@@ -1,50 +1,47 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  describe 'post validations test' do
-    it 'validates presence of title' do
-      post = Post.new(comments_counter: 0, likes_counter: 0)
-      expect(post.valid?).to be_falsey
-      expect(post.errors[:title]).to include("can't be blank")
-    end
+  let(:user) { FactoryBot.create(:user) }
 
-    it 'validates length of title' do
-      post = Post.new(title: 'a' * 251, comments_counter: 0, likes_counter: 0)
-      expect(post.valid?).to be_falsey
-      expect(post.errors[:title]).to include('is too long (maximum is 250 characters)')
-    end
-
-    it 'validates numericality of comments_counter' do
-      post = Post.new(title: 'Valid Title', comments_counter: 'not_a_number', likes_counter: 0)
-      expect(post.valid?).to be_falsey
-      expect(post.errors[:comments_counter]).to include('is not a number')
-    end
-
-    it 'validates numericality of likes_counter' do
-      post = Post.new(title: 'Valid Title', comments_counter: 0, likes_counter: 'not_a_number')
-      expect(post.valid?).to be_falsey
-      expect(post.errors[:likes_counter]).to include('is not a number')
-    end
+  it 'is not valid without a title' do
+    post = FactoryBot.build(:post, title: nil, author: user)
+    expect(post).not_to be_valid
   end
 
-  describe 'callbacks for increment and decrement of posts count' do
-    let!(:author) { create(:user) }
-    let!(:post) { create(:post, author:) }
-
-    it 'increments user posts_counter after creating a post' do
-      expect { create(:post, author:) }.to change { author.reload.posts_counter }.by(1)
-    end
-
-    it 'decrements user posts_counter after destroying a post' do
-      expect { post.destroy }.to change { author.reload.posts_counter }.by(-1)
-    end
+  it 'is valid with a title and other attributes' do
+    post = FactoryBot.build(:post, author: user)
+    expect(post).to be_valid
   end
 
-  describe '#recent_comments' do
-    let!(:post_with_comments) { create(:post_with_comments) }
+  it 'is not valid with a title exceeding 250 characters' do
+    post = FactoryBot.build(:post, title: 'a' * 251, author: user)
+    expect(post).not_to be_valid
+  end
 
-    it 'returns 5 most recent comments for a post' do
-      expect(post_with_comments.recent_comments(5).count).to eq(5)
-    end
+  it 'is not valid with a negative comments_counter' do
+    post = FactoryBot.build(:post, comments_counter: -1, author: user)
+    expect(post).not_to be_valid
+  end
+
+  it 'is not valid with a negative likes_counter' do
+    post = FactoryBot.build(:post, likes_counter: -1, author: user)
+    expect(post).not_to be_valid
+  end
+
+  it 'returns five most recent comments' do
+    post = FactoryBot.create(:post, author: user)
+    FactoryBot.create_list(:comment, 3, post:, created_at: 4.days.ago)
+    recent_comments = FactoryBot.create_list(:comment, 5, post:)
+
+    expect(post.five_most_recent_comments).to eq(recent_comments.reverse)
+  end
+
+  it 'updates author\'s posts_counter after save' do
+    expect(user.posts_counter).to eq(0)
+
+    FactoryBot.create(:post, author: user)
+    user.reload
+
+    expect(user.posts_counter).to eq(1)
   end
 end

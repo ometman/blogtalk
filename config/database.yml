@@ -15,31 +15,35 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  database: blog-db
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: domain-101
+  host: localhost
 
 development:
   <<: *default
-  database: blogtalk_dev
+  database: blog_app_development
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
   # the same name as the operating system user running Rails.
-  username: postgres
+  #username: blog_app
 
   # The password associated with the PostgreSQL role (username).
-  password: ometman
+  #password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  host: localhost
+  #host: localhost
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  port: 5432
+  #port: 5432
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -55,11 +59,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: blogtalk_test
-  username: postgres
-  password: ometman
-  host: localhost
-  port: 5432
+  database: blog_app_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -69,30 +69,20 @@ test:
 # variable when you boot the app. For example:
 #
 #   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
-  DATABASE_URL_DEV: postgres://postgres:ometman@localhost/blogtalk_dev
-  DATABASE_URL_PRO: postgres://postgres:ometman@localhost/blogtalk_pro
-  DATABASE_URL_TEST: postgres://postgres:ometman@localhost/blogtalk_test
 #
 # If the connection URL is provided in the special DATABASE_URL environment
 # variable, Rails will automatically merge its configuration values on top of
 # the values provided in this file. Alternatively, you can specify a connection
 # URL environment variable explicitly:
 #
-
-  development:
-    url: <%= ENV["DATABASE_URL_DEV"] %>
-  production:
-    url: <%= ENV["DATABASE_URL_PRO"] %>
-  test:
-    url: <%= ENV["DATABASE_URL_TEST"] %>
+#   production:
+#     url: <%= ENV["MY_APP_DATABASE_URL"] %>
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
 production:
   <<: *default
-  database: blogtalk_dev
-  username: postgres
-  password: ometman
-  host: localhost
-  port: 5432
+  database: blog_app_production
+  username: blog_app
+  password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>

@@ -1,0 +1,10 @@
+<%= form_with(model: [current_user, @post.comments.build], local: true, class: 'new-comment-form') do |form| %>
+  <div class="field">
+    <%= form.label :text %>
+    <%= form.text_area :text %>
+  </div>
+
+  <%= form.submit "Create Comment", class: "btn btn-primary" %>
+<% end %>
+
+  
