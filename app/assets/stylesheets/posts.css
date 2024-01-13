@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
 }
-  
+
 .post {
   display: flex;
   flex-direction: column;
@@ -73,11 +73,7 @@ p.user-posts-count {
 }
 
 .post-text {
-color: #000;
-padding: 1%;
-text-align: left;
-}
-
-.posts-comments {
-
+  color: #000;
+  padding: 1%;
+  text-align: left;
 }
