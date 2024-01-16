@@ -10,6 +10,7 @@
   <%= render partial: 'partials/post', collection: recent_posts %>
 </div>
 
-<div class="show-more">
-  <%= link_to 'Show more', user_posts_path(@user), class: "show-more-btn" %>
+<div class="action-btns">
+  <%= link_to 'Show more', user_posts_path(@user), class: "action-btn" %>
+  <%= link_to 'Create a Post', new_user_post_path(@user), class: "action-btn" %>
 </div>

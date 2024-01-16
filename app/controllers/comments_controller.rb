@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
-    before_action :set_user_and_post, only: [:create, :destroy]
+    before_action :set_user_and_post, only: [:new, :create, :destroy]
   
+    def new
+      @comment = @post.comments.new
+    end
+
     def create
       @comment = @post.comments.new(comment_params)
       if @comment.save

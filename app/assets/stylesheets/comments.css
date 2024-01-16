@@ -1,0 +1,30 @@
+.post-action-btns {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  gap: 2%;
+  text-align: center;
+  margin: 2% auto;
+}
+
+.like-btn,
+.comment-btn {
+  width: 60px;
+  color: #fff;
+  text-align: center;
+  padding: 1.2%;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.like-btn,
+.comment-btn {
+  background: blue;
+}
+
+.like-btn:hover,
+.comment-btn:hover {
+  background: green;
+}

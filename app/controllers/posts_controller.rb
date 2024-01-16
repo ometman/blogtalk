@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_user, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:index, :show, :new, :create]
+  before_action :set_post, only: [:show]
 
   def index
     @posts = @user.posts.paginate(page: params[:page], per_page: 2)
@@ -17,10 +17,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = @user.posts.new(post_params)
+    @post = current_user.posts.build(post_params)
+
     if @post.save
-      redirect_to user_post_path(@user, @post), notice: 'Post was successfully created.'
+      flash[:success] = 'Post saved successfully'
+      redirect_to user_posts_path(current_user)
     else
+      flash.now[:error] = 'Error: Post could not be saved'
       render :new
     end
   end

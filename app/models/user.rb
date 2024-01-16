@@ -12,9 +12,4 @@ class User < ApplicationRecord
 
     user.posts.order(created_at: :desc).limit(limit)
   end
-
-  def all_posts
-    @user = User.find_by(name: params[:id])
-    @posts = User.all_posts(@user.name)
-  end
 end

@@ -1,4 +1,4 @@
-<%= form_for(current_user.posts.build) do |f| %>
+<%= form_with model: [@user, @post], url: user_posts_path(@user), method: :post do |f| %>
   <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -9,5 +9,5 @@
     <%= f.text_area :text %>
   </div>
 
-  <%= f.submit "Create new post", class: "btn btn-primary" %>
+  <%= f.submit "Create new post", class: "btn btn-primary"  %>
 <% end %>

@@ -64,20 +64,33 @@ p.user-posts-count {
   gap: 2%;
 }
 
-.show-more,
+.action-btns,
 .pagination {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  gap: 2%;
   text-align: center;
   margin: 2% auto;
 }
 
-.show-more-btn,
+.action-btn,
 .pagination-btn {
   color: #fff;
   text-align: center;
-  width: 100%;
-  height: auto;
   padding: 1%;
-  border: solid 1px #ddedee;
+  border: none;
   border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-btn,
+.pagination-btn {
   background: blue;
+}
+
+.action-btn:hover,
+.pagination-btn:hover {
+  background: #0044cc;
 }
