@@ -10,7 +10,7 @@
 
 <ul class="comments-container">
   <% if @post.comments.present? %>
-    <% recent_comments = @post.comments.order(created_at: :desc).limit(2) %>
+    <% recent_comments = @post.comments.order(created_at: :desc).limit(3) %>
     <% recent_comments.each do |comment| %> 
       <li class="user-comment"><%= comment.user.name %>: <%= comment.text %></li>
     <% end %>
