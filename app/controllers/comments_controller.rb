@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-    before_action :set_user_and_post, only: [:new, :create, :destroy]
+    before_action :set_user_and_post, only: [:new, :create]
   
     def new
       @comment = @post.comments.new
@@ -7,18 +7,20 @@ class CommentsController < ApplicationController
 
     def create
       @comment = @post.comments.new(comment_params)
+      @comment.user = @user
+
+      puts "User: #{@user.inspect}"
+      puts "Post: #{@post.inspect}"
+      puts "Comment: #{@comment.inspect}"
+    
       if @comment.save
-        redirect_to user_post_path(@user, @post), notice: 'Comment was successfully created.'
+        flash[:success] = 'Comment was successfully created.'
+        redirect_to user_post_path(@user, @post)
       else
-        render 'posts/show'
+        render :new
       end
     end
-  
-    def destroy
-      @comment = @post.comments.find(params[:id])
-      @comment.destroy
-      redirect_to user_post_path(@user, @post), notice: 'Comment was successfully destroyed.'
-    end
+    
   
     private
   

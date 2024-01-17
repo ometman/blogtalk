@@ -9,12 +9,13 @@
 </div>
 
 <ul class="comments-container">
-  <% if @comments %>
-    <% @comments.each do |comment| %> 
+  <% if @post.comments.present? %>
+    <% recent_comments = @post.comments.order(created_at: :desc).limit(2) %>
+    <% recent_comments.each do |comment| %> 
       <li class="user-comment"><%= comment.user.name %>: <%= comment.text %></li>
     <% end %>
   <% else %>
-    <li class="user-comment">No comments for this post.</li>
+    <li class="user-comments">No comments for this post.</li>
   <% end %>
 </ul>
 

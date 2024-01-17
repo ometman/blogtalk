@@ -7,9 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @posts = @user.posts.find(params[:id])
-    @comments = @posts.comments
-    @comments_user = @comments.map(&:user)
+    @post
   end
 
   def new
@@ -17,13 +15,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.build(post_params)
+    @post = @user.posts.build(post_params)
 
     if @post.save
       flash[:success] = 'Post saved successfully'
-      redirect_to user_posts_path(current_user)
+      redirect_to user_posts_path(@user)
     else
-      flash.now[:error] = 'Error: Post could not be saved'
+      flash[:error] = 'Error: Post could not be saved'
+      flash[:error_details] = @post.errors.full_messages.join(', ')
       render :new
     end
   end
