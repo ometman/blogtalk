@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def show
     @post
+    @like = Like.new
   end
 
   def new
