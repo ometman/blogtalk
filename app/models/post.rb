@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: :author_id
-  has_many :comments, dependent: :destroy
-  has_many :likes, dependent: :destroy
+  has_many :comments, foreign_key: :post_id, dependent: :destroy
+  has_many :likes, foreign_key: :post_id, dependent: :destroy
 
   after_create :increment_user_posts_counter
   after_destroy :decrement_user_posts_counter
@@ -24,5 +24,9 @@ class Post < ApplicationRecord
 
   def recent_comments(limit = 5)
     comments.order(created_at: :desc).limit(limit)
+  end
+
+  def update_likes_counter
+    update(likes_counter: likes.count)
   end
 end

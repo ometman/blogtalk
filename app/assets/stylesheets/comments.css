@@ -1,0 +1,23 @@
+.post-action-btns {
+  display: flex;
+  justify-content: center;
+  gap: 2%;
+  text-align: center;
+  margin: 2% auto;
+}
+
+.comment-btn {
+  width: 4%;
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background: blue;
+}
+
+.comment-btn:hover {
+  background: green;
+}

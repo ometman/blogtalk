@@ -21,4 +21,5 @@
 </div>
 <div class="pagination">
   <%= link_to 'Pagination', user_posts_path(@user, page: @posts.current_page + 1), class: 'pagination-btn' %>
+  <%= link_to 'Create a Post', new_user_post_path(@user), class: "action-btn" %>
 </div>

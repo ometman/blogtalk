@@ -1,0 +1,9 @@
+<%= form_with(model: [@user, @post, @comment], local: true, url: user_post_comments_path(@user, @post), method: :post, class: 'new-comment') do |f| %>
+  <div class="field">
+    <%= f.label :text %>
+    <%= f.text_area :text %>
+  </div>
+
+  <%= f.submit "Add Comment", class: "btn btn-primary" %>
+<% end %>
+
