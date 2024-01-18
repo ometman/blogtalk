@@ -64,7 +64,7 @@ p.user-posts-count {
   gap: 2%;
 }
 
-.action-btns,
+.user-action-btns,
 .pagination {
   display: flex;
   justify-content: center;
@@ -92,5 +92,5 @@ p.user-posts-count {
 
 .action-btn:hover,
 .pagination-btn:hover {
-  background: #0044cc;
+  background: green;
 }

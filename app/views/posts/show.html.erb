@@ -21,6 +21,5 @@
 
 <div class="post-action-btns">
   <%= render 'likes/new', post: @post, like: @like %>
-  <%= link_to 'Like', user_posts_path(@user), class: "like-btn" %>
   <%= link_to 'Comment', new_user_post_comment_path(@user, @post), class: "comment-btn" %>
 </div>

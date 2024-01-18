@@ -1,12 +1,42 @@
-/* Add this to your application.css or application.scss file */
-
-form {
+form.new-comment,
+form.new-post {
   width: 40%;
   margin: 2% auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form.like-btn {
+  display: flex;
+  width: 5%;
+  height: 40px;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background: blue;
+}
+
+.like-btn {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background: blue;
+}
+
+.like-btn:hover {
+  background: green;
 }
 
 .field {
