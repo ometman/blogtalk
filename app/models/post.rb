@@ -30,4 +30,3 @@ class Post < ApplicationRecord
     update(likes_counter: likes.count)
   end
 end
-

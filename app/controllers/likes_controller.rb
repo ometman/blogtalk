@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :set_user_and_post, only: [:new, :create, :destroy]
+  before_action :set_user_and_post, only: %i[new create destroy]
 
   def new
     @like = @post.likes.new
