@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.includes(:posts).all
   end
-
   def show
     @user = current_user
-    @posts = @user ? @user.posts : []
+    @user_posts = @user ? @user.posts.includes(:comments).all : []
   end
 end
