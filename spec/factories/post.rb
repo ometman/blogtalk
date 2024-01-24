@@ -3,7 +3,7 @@ FactoryBot.define do
     sequence(:title) { |n| "Post #{n}" }
     comments_counter { 0 }
     likes_counter { 0 }
-    association :author, factory: :user
+    association :user, factory: :user
 
     factory :post_with_comments do
       transient do

@@ -43,6 +43,11 @@ RSpec.configure do |config|
     Rails.root.join('spec/fixtures')
   ]
 
+  require 'factory_bot_rails'
+FactoryBot.definition_file_paths << File.join(File.dirname(__FILE__), 'factories')
+FactoryBot.reload
+
+
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
