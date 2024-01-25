@@ -67,7 +67,7 @@ RSpec.feature 'User Post Index Page', type: :feature do
     post = user.posts.first
     visit user_posts_path(user)
 
-    click_link "Post: #{post.id}"
+    click_link "Post #{post.id}"
 
     expect(current_path).to eq(user_post_path(user, post))
   end
