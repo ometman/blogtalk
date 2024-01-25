@@ -25,7 +25,7 @@ RSpec.feature 'User Post Index Page', type: :feature do
     post = user.posts.first
     visit user_posts_path(user)
 
-    expect(page).to have_content(post.id)
+    expect(page).to have_content(post.title.to_s)
   end
 
   scenario 'I can see some of the post\'s body' do
@@ -66,7 +66,7 @@ RSpec.feature 'User Post Index Page', type: :feature do
   scenario 'When I click on a post, it redirects me to that post\'s show page' do
     post = user.posts.first
     visit user_posts_path(user)
-
+    
     click_link "Post #{post.id}"
 
     expect(current_path).to eq(user_post_path(user, post))
