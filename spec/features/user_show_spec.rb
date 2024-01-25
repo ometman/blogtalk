@@ -45,7 +45,7 @@ RSpec.feature 'User Show Page', type: :feature do
     post = create(:post, user:)
     visit user_path(user)
 
-    click_link "Post: #{post.id}"
+    click_link "Post #{post.id}"
 
     expect(current_path).to eq(user_post_path(user, post))
   end

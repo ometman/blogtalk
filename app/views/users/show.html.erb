@@ -6,7 +6,7 @@
 </div>
 
 <div id="posts-container">
-  <% recent_posts = User.recent_posts(@user.name, 3) %>
+<% recent_posts = User.recent_posts(@user.name, 3).includes(:comments, :likes) %>
   <%= render partial: 'partials/post', collection: recent_posts %>
 </div>
 
