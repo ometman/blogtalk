@@ -25,7 +25,7 @@ RSpec.feature 'User Post Index Page', type: :feature do
     post = user.posts.first
     visit user_posts_path(user)
 
-    expect(page).to have_content("#{post.title}")
+    expect(page).to have_content(post.title.to_s)
   end
 
   scenario 'I can see some of the post\'s body' do
