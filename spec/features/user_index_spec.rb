@@ -33,8 +33,6 @@ RSpec.feature 'User Index Page', type: :feature do
     user = users.first
     find("#user_#{user.id}").click
 
-
     expect(current_path).to eq(user_path(user))
   end
 end
-

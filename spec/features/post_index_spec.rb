@@ -32,55 +32,48 @@ RSpec.feature 'User Post Index Page', type: :feature do
     post = user.posts.first
     visit user_posts_path(user)
 
-    expect(page).to have_content("#{post.text}")
+    expect(page).to have_content(post.text.to_s)
   end
 
   scenario 'I can see the first comments on a post' do
     post = user.posts.first
-    create_list(:comment, 3, post: post)
+    create_list(:comment, 3, post:)
     visit user_posts_path(user)
 
     post.comments.limit(3).each do |comment|
-      expect(page).to have_content("#{comment.text}")
+      expect(page).to have_content(comment.text.to_s)
     end
   end
 
-
   scenario 'I can see how many comments a post has' do
     post = user.posts.first
-    comments = create_list(:comment, 3, post: post)
-    
+    create_list(:comment, 3, post:)
+
     visit user_posts_path(user)
 
-    expect(page).to have_content("#{post.comments.count}")
+    expect(page).to have_content(post.comments.count.to_s)
   end
-  
 
   scenario 'I can see how many likes a post has' do
     post = user.posts.first
-    likes = create_list(:like, 3, post: post)
-    
+    create_list(:like, 3, post:)
+
     visit user_posts_path(user)
 
-    expect(page).to have_content("#{post.likes.count}")
-
+    expect(page).to have_content(post.likes.count.to_s)
   end
-  
-  
 
   scenario 'When I click on a post, it redirects me to that post\'s show page' do
     post = user.posts.first
     visit user_posts_path(user)
-  
-    post_link_selector = ".posts-container a[href='#{user_post_path(user, post)}']"
-    
+
     click_link "Post: #{post.id}"
- 
+
     expect(current_path).to eq(user_post_path(user, post))
   end
 
   scenario 'I can see a section for pagination if there are more posts than fit on the view' do
-    create_list(:post, 10, user: user)
+    create_list(:post, 10, user:)
     visit user_posts_path(user)
 
     expect(page).to have_css('.pagination')

@@ -3,7 +3,6 @@
   margin: 0 auto;
   padding: 1%;
   max-width: 580px;
-  width: 100%;
   background: white;
 }
 
@@ -34,7 +33,7 @@ input[type="password"],
 .actions {
   width: 100%;
   padding: 8px;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;

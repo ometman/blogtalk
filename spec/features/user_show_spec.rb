@@ -20,22 +20,21 @@ RSpec.feature 'User Show Page', type: :feature do
 
   scenario 'I can see the user\'s bio' do
     visit user_path(user)
-    expect(page).to have_content("#{user.bio}")
+    expect(page).to have_content(user.bio.to_s)
   end
 
   scenario "I can see the user's first 3 posts" do
     # Create 3 posts for the user
-    create_list(:post, 3, user: user)
-  
+    create_list(:post, 3, user:)
+
     # Visit the user's show page
     visit user_path(user)
-  
+
     # Check if each post title is displayed on the page
     user.posts.limit(3).each do |post|
       expect(page).to have_content(post.id)
     end
   end
-  
 
   scenario 'I can see a button that lets me view all of a user\'s posts' do
     visit user_path(user)
@@ -43,21 +42,16 @@ RSpec.feature 'User Show Page', type: :feature do
   end
 
   scenario "When I click a user's post, it redirects me to that post's show page" do
-    post = create(:post, user: user)
+    post = create(:post, user:)
     visit user_path(user)
-  
-    post_link_selector = ".posts-container a[href='#{user_post_path(user, post)}']"
-    
+
     click_link "Post: #{post.id}"
- 
+
     expect(current_path).to eq(user_post_path(user, post))
   end
-  
-  
-  
 
   scenario 'When I click to see all posts, it redirects me to the user\'s post\'s index page' do
-    create(:post, user: user)
+    create(:post, user:)
     visit user_path(user)
 
     click_link 'Show more'

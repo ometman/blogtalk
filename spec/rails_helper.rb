@@ -44,8 +44,8 @@ RSpec.configure do |config|
   ]
 
   require 'factory_bot_rails'
-FactoryBot.definition_file_paths << File.join(File.dirname(__FILE__), 'factories')
-FactoryBot.reload
+  FactoryBot.definition_file_paths << File.join(File.dirname(__FILE__), 'factories')
+  FactoryBot.reload
 
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

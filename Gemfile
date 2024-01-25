@@ -71,4 +71,4 @@ end
 
 gem 'will_paginate'
 
-gem "devise", "~> 4.9"
+gem 'devise', '~> 4.9'
