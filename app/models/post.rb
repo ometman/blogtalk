@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  belongs_to :author, class_name: 'User', foreign_key: :author_id
+  belongs_to :user, class_name: 'User', foreign_key: :author_id
   has_many :comments, foreign_key: :post_id, dependent: :destroy
   has_many :likes, foreign_key: :post_id, dependent: :destroy
 
@@ -13,11 +13,11 @@ class Post < ApplicationRecord
   private
 
   def increment_user_posts_counter
-    author.increment(:posts_counter).save
+    user.increment(:posts_counter).save
   end
 
   def decrement_user_posts_counter
-    author.decrement(:posts_counter).save
+    user.decrement(:posts_counter).save
   end
 
   public
