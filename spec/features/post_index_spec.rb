@@ -54,7 +54,6 @@ RSpec.feature 'User Post Index Page', type: :feature do
     expect(page).to have_content(post.comments.count.to_s)
   end
 
-
   scenario 'I can see how many likes a post has' do
     post = user.posts.first
     create_list(:like, 3, post:)
@@ -63,8 +62,6 @@ RSpec.feature 'User Post Index Page', type: :feature do
 
     expect(page).to have_content(post.likes.count.to_s)
   end
-
-
 
   scenario 'When I click on a post, it redirects me to that post\'s show page' do
     post = user.posts.first

@@ -36,7 +36,6 @@ RSpec.feature 'User Show Page', type: :feature do
     end
   end
 
-
   scenario 'I can see a button that lets me view all of a user\'s posts' do
     visit user_path(user)
     expect(page).to have_link('Show more')
@@ -50,9 +49,6 @@ RSpec.feature 'User Show Page', type: :feature do
 
     expect(current_path).to eq(user_post_path(user, post))
   end
-
-
-
 
   scenario 'When I click to see all posts, it redirects me to the user\'s post\'s index page' do
     create(:post, user:)
