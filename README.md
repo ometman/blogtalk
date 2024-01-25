@@ -193,6 +193,11 @@ You can deploy this project using:
 - Twitter: [@twitterhandle](https://twitter.com/ometman)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/ometman/)
 
+👤 **Ahmed (newtonah0)**
+
+
+- GitHub: [@newtonah0](https://github.com/newtonah0)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
