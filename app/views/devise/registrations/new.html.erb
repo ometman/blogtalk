@@ -1,0 +1,31 @@
+<div class="user-form-container">
+
+  <h2 class='user-form-title'>Blogtalk Registration Page</h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'user-form-body' }) do |f| %>
+    
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Enter username" %>
+    </div>
+
+    <div class="field">
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password",  placeholder: "Enter password" %>
+    </div>
+
+    <div class="field">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Register", class: 'action-btn'%>
+    </div>
+    <%= render "devise/shared/links" %>
+  <% end %>
+
+</div>
+
+

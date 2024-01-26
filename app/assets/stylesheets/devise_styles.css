@@ -1,0 +1,53 @@
+.user-form-container {
+  display: block;
+  margin: 0 auto;
+  padding: 1%;
+  max-width: 580px;
+  background: white;
+}
+
+h2.user-form-title {
+  text-align: center;
+}
+
+.user-form-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 60%;
+  padding: 4%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.field {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+input[type="email"],
+input[type="password"],
+.action-btn,
+.actions {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.actions {
+  margin-top: 10px;
+  border: none;
+  padding: 0;
+}
+
+.remember-me {
+  display: flex;
+  align-items: flex-start;
+  margin-top: -20px;
+  gap: 5px;
+}

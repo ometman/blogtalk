@@ -1,0 +1,19 @@
+<div class="user-form-container">
+
+  <h2 class='user-form-title'>Blogtalk Login Page</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'user-form-body' }) do |f| %>
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "username" %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "current-password",  placeholder: "Password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Login", class: 'action-btn'%>
+    </div>
+  <% end %>
+
+</div>
