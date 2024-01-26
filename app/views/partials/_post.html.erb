@@ -10,5 +10,10 @@
       <p>Comments: <%= post.comments.count %></p>
       <p>Likes: <%= post.likes.count %></p>
     </div>
+    <% if can? :destroy, @post %>
+      <div class="user-action-btns">
+        <%= link_to 'Delete this Post', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </div>
+    <% end %>
   </div>
 <% end %>
