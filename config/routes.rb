@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
  devise_scope :user do
     get 'login', to: 'devise/sessions#new', as: :login
+    get 'sign_up', to: 'devise/registrations#new', as: :sign_up
   end
 
   root to: 'home#index'
