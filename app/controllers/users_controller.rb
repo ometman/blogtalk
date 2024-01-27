@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show] 
 
   def index
@@ -6,8 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[:id])
-    @user = current_user
+    @user = User.find(params[:id])
     @posts = @user.posts.includes(:comments).all
   end
 end
